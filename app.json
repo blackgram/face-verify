@@ -1,13 +1,18 @@
 {
   "expo": {
-    "name": "face-verify-app",
+    "name": "Face Verify",
     "slug": "face-verify-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs camera access to verify your identity via facial recognition."
+      },
+      "bundleIdentifier": "com.blackgram.faceverifyapp",
+      "appleTeamId": "3W835TBHTL"
     },
     "android": {
       "adaptiveIcon": {
@@ -16,10 +21,20 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "permissions": [
+        "android.permission.CAMERA"
+      ],
+      "package": "com.blackgram.faceverifyapp"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "deploymentTarget": "16.4"
+          }
+        }
+      ]
+    ]
   }
 }
